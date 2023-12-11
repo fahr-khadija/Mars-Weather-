@@ -9,7 +9,7 @@ In this challenge we are  now ready to take on a full web-scraping and data anal
 
 ## Part 1: Scrape Titles and Preview Text from Mars News
            ## Code file 
- part_1_mars_news.ipynb
+part_1_mars_news.ipynb
 
 ### General Import Splinter and BeautifulSoup ChromeDriverManager
             from splinter import Browser
@@ -39,3 +39,26 @@ In this challenge we are  now ready to take on a full web-scraping and data anal
             "Preview" : preview
              }
              list.append(title_preview_list)
+
+## Part 1: Scrape and Analyze Mars Weather Data
+
+### General Import relevant libraries
+            from splinter import Browser
+            from bs4 import BeautifulSoup as soup
+            import matplotlib.pyplot as plt
+            import pandas as pd
+            from webdriver_manager.chrome import ChromeDriverManager
+            from bs4 import BeautifulSoup as bs
+            import numpy as np
+### Step 1: Visit the Website
+             url = "https://static.bc-edx.com/data/web/mars_facts/temperature.html"
+             browser.visit(url)
+### Step 2: Scrape the Table
+            # Create a Beautiful Soup Object
+            html = browser.html
+            soup = bs(html, 'html.parser')
+            # Extract all rows of data
+            table = soup.find('table', class_='table')
+### Step 3: Store the Data
+            
+
