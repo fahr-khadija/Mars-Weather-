@@ -60,5 +60,21 @@ part_1_mars_news.ipynb
             # Extract all rows of data
             table = soup.find('table', class_='table')
 ### Step 3: Store the Data
-            
+
+### Step 4: Prepare Data for Analysis
+            #Change data types for data analysis
+             convert = {'terrestrial_date': 'datetime64[ns]',
+           'sol': 'int64',
+           'ls': 'int64',
+           'month': 'int64',
+           'min_temp': 'float64',
+           'pressure': 'float64'}
+            mars_weather_df = mars_weather_df.astype(convert).astype(convert)
+### Step 5: Analyze the Data
+            # 1. How many months are there on Mars?
+            months = mars_weather_df['month'].value_counts().sort_index()
+
+           # On average, the third month has the coldest mounth in Mars, and the eighth month is the warmest. 
+            #Atmospheric pressure is, on average, lowest in the sixth month and highest in the ninth.
+            ##The distance from peak to peak is roughly 1425-750, or 675 days. A year on Mars appears to be about 675 days from the plot. 
 
